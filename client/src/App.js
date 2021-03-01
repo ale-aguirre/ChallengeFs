@@ -1,15 +1,24 @@
-import Home from "./components/Home";
-import "./App.css";
-import { BrowserRouter, Route } from "react-router-dom";
+import React, { useEffect, useReducer } from 'react'
+import { AuthContext } from './auth/AuthContext'
+import { authReducer } from './auth/authReducer'
+import { AppRouter } from './routers/AppRouter'
 
-function App() {
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Route path="/" component={Home} />
-      </BrowserRouter>
-    </div>
-  );
+export const App = () => {
+
+    const init = () => {
+        return JSON.parse(localStorage.getItem('user')) || { logged: false };
+    }
+
+    const [user, dispatch] = useReducer(authReducer, {}, init);
+
+    useEffect(() => {
+        localStorage.setItem('user',JSON.stringify(user));
+       
+    }, [user])
+
+    return (
+        <AuthContext.Provider value={{ user, dispatch }}>
+            <AppRouter />
+        </AuthContext.Provider>
+    )
 }
-
-export default App;

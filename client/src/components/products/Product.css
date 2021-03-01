@@ -1,0 +1,55 @@
+.img-grande{
+    width: auto; height: 170px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px
+    
+  }
+.product{
+    border-radius: 8px;
+    width: 270px;
+}
+.prod-body{
+    padding: 12px;
+    width: max-content;
+    
+}
+.contenedor{
+    justify-content: center
+    
+}
+.product-size{
+    width: fit-content;
+    
+}
+.cont-grande{
+    width: 282px;
+    height: 355px ;
+    font-family: Muli; 
+    margin-bottom: 16px;
+    
+}
+.h5{
+    font-size: 20px;
+    font-weight:550;
+    color: red;
+    line-height: 16px;
+    font-style: normal;
+    font-variant: normal;
+}
+.pp{
+    font-size: 13px;
+}
+
+.numberCircle {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 2px;
+
+    background: #fff;
+    border: 5px solid red;
+    color: red;
+    text-align: center;
+
+    font: 15px Muli;
+}
