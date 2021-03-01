@@ -1,0 +1,10 @@
+
+.titulos{
+    text-align: center;
+    justify-items: center;
+    font-family: Muli; 
+}
+.cards{
+    transition: all 0.3s;
+    
+}
