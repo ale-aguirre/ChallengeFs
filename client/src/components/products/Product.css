@@ -4,17 +4,22 @@
     border-top-right-radius: 8px
     
   }
+.separador{
+    margin-right: 20px;
+    margin-bottom: -25px;
+}
 .product{
     border-radius: 8px;
-    width: 270px;
+    width: 280px;
+
 }
 .prod-body{
     padding: 12px;
-    width: max-content;
+    width: fit-content;
     
 }
 .contenedor{
-    justify-content: center
+    justify-content: center;
     
 }
 .product-size{
@@ -35,21 +40,40 @@
     line-height: 16px;
     font-style: normal;
     font-variant: normal;
+    padding-bottom: 5px;
+    font-weight: bold;
 }
 .pp{
     font-size: 13px;
+    padding-bottom: 15px;
 }
 
-.numberCircle {
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    padding: 2px;
+.content {
+    display: flex;
+    align-items: flex-start;
+    padding-right: 15px;
+    width: 160px;
+    
+  }
+  
+  .content img {
+    margin-right: 10px;
+    display: block;
+    justify-content: center;
+  }
+  
+  .content h3,
+  .content p {margin: 0;}
 
-    background: #fff;
-    border: 5px solid red;
-    color: red;
-    text-align: center;
-
-    font: 15px Muli;
+  .texto{
+      font-size: 12px;
+      font-family: Muli; 
+      font-weight: bold;
+      color: grey;
+      width: fit-content;
+  }
+.icon2{
+    margin-left:22px;
+    margin-right: 5px;
+    width: 45px;
 }

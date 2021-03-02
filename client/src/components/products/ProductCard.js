@@ -2,9 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Product.css";
 
-export const ProductCard = ({ id, title, type, description, icons }) => {
+export const ProductCard = ({
+  id,
+  title,
+  type,
+  description,
+  icon1,
+  text,
+  icon2,
+  icon3,
+}) => {
   return (
-    <div className="ms-3">
+    <div className="ms-3 separador">
       <div className="row cont-grande">
         <div className="col mb-4 product-size">
           <div className="card h-100 product">
@@ -15,14 +24,36 @@ export const ProductCard = ({ id, title, type, description, icons }) => {
             />
 
             <div className="card-body prod-body">
-              <h5 className="card-title h5">{title}</h5>
+              <Link to={`./product/${id}`}>
+                <h5 className="card-title h5">{title}</h5>
+              </Link>
               <p className="card-text pp">{description}</p>
               <nav>
-                <p className="card-text">
-                  <small className="text-muted">{icons}</small>
-                </p>
-                <div class="numberCircle">4.5</div>
-                <Link to={`./product/:productId`}>ICON</Link>
+                {
+                  (icon1,
+                  text,
+                  icon2,
+                  icon3 ? (
+                    <div className="product-buttons mt-1">
+                      <div className="row align-items-center">
+                        <div className="col-6">
+                          <div className="content">
+                            <img src={`./images/${icon1}.png`} alt={title} />
+                            <div>
+                              <p className="texto">{text}</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="col-3 icon2">
+                          <img src={`./images/${icon2}.png`}  alt={title}/>
+                        </div>
+                        <div className="col-1">
+                          <img src={`./images/${icon3}.png`}  alt={title}/>
+                        </div>
+                      </div>
+                    </div>
+                  ) : null)
+                }
               </nav>
             </div>
           </div>
