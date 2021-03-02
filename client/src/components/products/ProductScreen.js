@@ -21,7 +21,7 @@ export const ProductScreen = ({ history }) => {
     }
   };
 
-  const { title, description, type, icons } = product;
+  const { title, description, price } = product;
 
   return (
     <div className="row mt-5">
@@ -35,17 +35,17 @@ export const ProductScreen = ({ history }) => {
       <div className="col-8">
         <h3>{title}</h3>
         <ul className="list-group list-group-flush">
-          <li className="list-group-item">
+          {/* <li className="list-group-item">
             <b>Where:</b>
             {type}
-          </li>
+          </li> */}
           <li className="list-group-item">
             <b>Description:</b>
             {description}
           </li>
           <li className="list-group-item">
-            <b>Related:</b>
-            {icons}
+            <b>Price:</b>
+            {price}
           </li>
         </ul>
 
