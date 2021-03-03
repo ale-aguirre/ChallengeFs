@@ -11,6 +11,8 @@ export const Home = () => {
       <div className="cards">
         <ProductList type={"rate"} />
       </div>
+      
+    
     </div>
   );
 };

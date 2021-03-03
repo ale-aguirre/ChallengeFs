@@ -6,6 +6,7 @@ import { ProductScreen } from '../components/products/ProductScreen'
 import { Home } from '../components/home/Home'
 import useForm from '../components/hooks/useForm'
 import useCoin from '../components/hooks/useCoin'
+// import Crud from '../components/hooks/Crud'
 
 export const DasboardRoutes = () => {
     return (
@@ -15,8 +16,9 @@ export const DasboardRoutes = () => {
                 <Switch>
                     
                     <Route exact path="/products" component={Home} />
-                    <Route exact path="/crud" component={useForm} />
+                    <Route exact path="/form" component={useForm} />
                     <Route exact path="/exchange" component={useCoin} />
+                    {/* <Route exact path="/crud" component={Crud} /> */}
                     <Route exact path="/product/:productId" component={ProductScreen} />
                     <Redirect to="/products"/>
                 </Switch>
