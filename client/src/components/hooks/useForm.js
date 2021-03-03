@@ -55,10 +55,9 @@ const useForm = () => {
                 id="textinput"
                 name="textinput"
                 type="text"
-                placeholder="rate.."
+                placeholder="rate"
                 className="form-control input-md"
               />
-              <span className="help-block">help</span>
             </div>
           </div>
 
@@ -85,6 +84,9 @@ const useForm = () => {
                 className="btn btn-primary"
               >
                 Submit
+              </button>
+              <button className="btn btn-dark" href="/exchange">
+              Convert
               </button>
             </div>
           </div>
