@@ -52,7 +52,7 @@ export default function NavAnim() {
       >
         <nav className="Nav">
           <a href="/">Home</a>
-          <a href="/crud">Add Item</a>
+          <a href="/form">Add Item</a>
           <span className="nav-item nav-link text-info">{user.name}</span>
           <button onClick={handleLogout}>Logout</button>
         </nav>
