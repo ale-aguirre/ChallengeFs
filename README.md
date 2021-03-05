@@ -2,7 +2,9 @@
 > Creado con PERN STACK
 
 
-![](./Captura.JPG)
+</br>
+<img src= "https://i.ibb.co/mX1PJrt/Captura.jpg"/>
+</br>
 
 ## Configuración de desarrollo
 
