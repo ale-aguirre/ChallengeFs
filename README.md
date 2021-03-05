@@ -4,10 +4,6 @@
 
 ![](./Captura.JPG)
 
-## Ejemplo de uso
-
-Algunos casos de ejemplo sobre cómo utilizar tu producto. Algunos bloques de código y capturas de pantalla harán que sea más atractivo.
-
 ## Configuración de desarrollo
 
 Crear un archivo .env en api , para declarar:
