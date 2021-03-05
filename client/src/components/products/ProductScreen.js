@@ -1,8 +1,9 @@
 import React, { useMemo } from "react";
 import { Redirect, useParams } from "react-router-dom";
 import { getItemsById } from "../../selectors/getItemsById";
+import './ProductScreen.css'
 
-export const ProductScreen = ({ history }) => {
+ const ProductScreen = ({ history }) => {
   const { productId } = useParams();
 
   const product = useMemo(() => getItemsById(productId), [productId]);
@@ -25,14 +26,14 @@ export const ProductScreen = ({ history }) => {
 
   return (
     <div className="row mt-5">
-      <div className="col-4">
+      <div className="col-4 separator">
         <img
           src={`../../images/${productId}.jpg`}
           className="img-thumbnail animate__animated animate__fadeInLeft"
           alt={title}
         />
       </div>
-      <div className="col-8">
+      <div className="col-8 separator">
         <h3>{title}</h3>
         <ul className="list-group list-group-flush">
           {/* <li className="list-group-item">
@@ -56,3 +57,5 @@ export const ProductScreen = ({ history }) => {
     </div>
   );
 };
+
+export default ProductScreen;

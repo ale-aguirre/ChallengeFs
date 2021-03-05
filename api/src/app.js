@@ -1,75 +1,35 @@
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+const routes = require('./routes/index.js');
+const cors = require('cors')
+require('./db.js');
 
-const express = require("express");
-const app = express();
-const mysql = require("mysql");
-const cors = require("cors");
+const server = express();
 
-app.use(cors());
-app.use(express.json());
+server.name = 'API';
 
-const db = mysql.createConnection({
-  user: "root",
-  host: "localhost",
-  password: "Ale840661",
-  database: "challengefs",
-});
-app.post("/create", (req, res) => {
-  const title = req.body.title;
-  const description = req.body.description;
-  const type = req.body.type;
-  const image = req.body.image;
-  const price = req.body.price;
-
-  db.query(
-    "INSERT INTO product (title, description, type, image, price) VALUES (?,?,?,?,?)",
-    [title, description, type, image, price],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-      } else {
-        res.send("Values Inserted");
-      }
-    }
-  );
+server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
+server.use(bodyParser.json({ limit: '50mb' }));
+server.use(cookieParser());
+server.use(morgan('dev'));
+server.use(cors())
+server.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000'); // update to match the domain you will make the request from
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
 });
 
-app.get("/product", (req, res) => {
-  db.query("SELECT * FROM product", (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(result);
-    }
-  });
+server.use('/', routes);
+
+// Error catching endware.
+server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
+  const status = err.status || 500;
+  const message = err.message || err;
+  console.error(err);
+  res.status(status).send(message);
 });
 
-app.put("/update", (req, res) => {
-  const id = req.body.id;
-  const price = req.body.price;
-  db.query(
-    "UPDATE product SET price = ? WHERE id = ?",
-    [price, id],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-      } else {
-        res.send(result);
-      }
-    }
-  );
-});
-
-app.delete("/delete/:id", (req, res) => {
-  const id = req.params.id;
-  db.query("DELETE FROM product WHERE id = ?", id, (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(result);
-    }
-  });
-});
-
-app.listen(3001, () => {
-  console.log("Yey, your server is running on port 3001");
-});
+module.exports = server;
