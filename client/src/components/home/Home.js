@@ -1,18 +1,23 @@
 import React from "react";
-import { ProductList } from "../products/ProductList";
+// import { ProductList } from "../products/ProductList";
+import Banner from './Banner'
+import NavBar from './NavBar'
+
 import "./Home.css";
 
-export const Home = () => {
+const Home = () => {
   return (
     <div>
-      <div className="titulos">
+      <NavBar/>
+      <Banner/>
+      {/* <div className="titulos">
         <h1>NEW PRODUCTS</h1>
       </div>
       <div className="cards">
         <ProductList type={"rate"} />
-      </div>
-      
-    
+      </div> */}
     </div>
   );
 };
+
+export default Home;
